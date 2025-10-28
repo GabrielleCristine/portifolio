@@ -17,9 +17,7 @@ export default function Hero({ lng }: { lng: string }) {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
               {t('hero_greeting')} <span className="gradient-text">{t('hero_name')}</span>
             </h1>
-            <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
-              <span>{t('hero_description')}</span>
-            </p>
+            
           </div>
           <div className="max-w-[700px] text-muted-foreground">
             <p className="text-lg">{t('description')}</p>
