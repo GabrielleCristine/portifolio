@@ -34,13 +34,13 @@ export default function Hero({ lng }: { lng: string }) {
           </div>
           <div className="flex gap-4 mt-6">
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://github.com/CristineGabrielle" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/GabrielleCristine" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://linkedin.com/in/CristineGabrielle" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/gabriellecristine/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
