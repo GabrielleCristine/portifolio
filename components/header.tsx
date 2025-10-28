@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useCallback } from "react"
 import { ModeToggle } from "./mode-toggle"
 import { Button } from "@/components/ui/button"
@@ -10,9 +9,9 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { LanguageSwitcher } from "./language-switcher"
 import TypingLogo from "./typing-logo"
 
-// Updated nav items - removed Skills as it's now part of Experience
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -29,21 +28,14 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home")
   const pathname = usePathname()
 
-  // Function to determine which section is currently in view
   const determineActiveSection = useCallback(() => {
     const sections = navItems.map((item) => item.href.substring(1))
-
-    // Add the sections that are not in the navbar but still need to be detected
     const allSections = [...sections, "open-source", "skills"]
-
-    // Find the section that is currently in view
     for (let i = allSections.length - 1; i >= 0; i--) {
       const section = document.getElementById(allSections[i])
       if (section) {
         const rect = section.getBoundingClientRect()
-        // If the section is in the viewport (with some buffer for better UX)
         if (rect.top <= 150 && rect.bottom >= 150) {
-          // Map to the closest navbar item if it's not in the navbar
           const sectionId = allSections[i]
           if (sectionId === "open-source") return "projects"
           if (sectionId === "skills") return "experience"
@@ -52,8 +44,6 @@ export default function Header() {
         }
       }
     }
-
-    // Default to home if no section is in view
     return "home"
   }, [])
 
@@ -62,22 +52,18 @@ export default function Header() {
       setScrolled(window.scrollY > 10)
       setActiveSection(determineActiveSection())
     }
-
     window.addEventListener("scroll", handleScroll)
-    // Initial check
     setActiveSection(determineActiveSection())
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [determineActiveSection])
 
-  // Smooth scroll to section when clicking nav items
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const targetId = href.substring(1)
     const element = document.getElementById(targetId)
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 80, // Offset for header height
+        top: element.offsetTop - 80,
         behavior: "smooth",
       })
       setActiveSection(targetId)
@@ -96,13 +82,10 @@ export default function Header() {
         <Link href="/" className="flex items-center space-x-2">
           <TypingLogo />
         </Link>
-
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <div className="relative flex space-x-4 items-center">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1)
-
               return (
                 <motion.div
                   key={item.name}
@@ -139,10 +122,9 @@ export default function Header() {
               )
             })}
           </div>
+          <LanguageSwitcher />
           <ModeToggle />
         </nav>
-
-        {/* Mobile Navigation Toggle */}
         <div className="flex items-center md:hidden space-x-4">
           <ModeToggle />
           <Button
@@ -166,8 +148,6 @@ export default function Header() {
           </Button>
         </div>
       </div>
-
-      {/* Mobile Navigation Menu */}
       <motion.div
         className="md:hidden overflow-hidden"
         initial={{ height: 0 }}
@@ -178,7 +158,6 @@ export default function Header() {
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1)
-
               return (
                 <Link
                   key={item.name}
