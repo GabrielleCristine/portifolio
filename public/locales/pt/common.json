@@ -1,3 +1,15 @@
 {
-  "greeting": "Olá"
+  "nav_home": "Início",
+  "nav_about": "Sobre",
+  "nav_experience": "Experiência",
+  "nav_projects": "Projetos",
+  "nav_education": "Formação",
+  "nav_blog": "Blog",
+  "nav_contact": "Contato",
+  "hero_greeting": "Olá, eu sou",
+  "hero_name": "Gabrielle Cristine",
+  "hero_description": "Sou especialista em criar aplicações web bonitas, funcionais e de alta performance.",
+  "description": "Sou Desenvolvedora BI e Desenvolvedora Full Stack com paixão por tecnologia e soluções criativas.",
+  "getInTouch": "Entre em Contato",
+  "downloadResume": "Baixar Currículo"
 }

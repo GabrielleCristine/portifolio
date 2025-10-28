@@ -1,3 +1,15 @@
 {
-  "greeting": "Hello"
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_experience": "Experience",
+  "nav_projects": "Projects",
+  "nav_education": "Education",
+  "nav_blog": "Blog",
+  "nav_contact": "Contact Me",
+  "hero_greeting": "Hello, I'm",
+  "hero_name": "Gabrielle Cristine",
+  "hero_description": "I specialize in creating beautiful, functional, and high-performance web applications.",
+  "description": "I am a BI Developer and Full Stack Developer with a passion for technology and creative solutions.",
+  "getInTouch": "Get in Touch",
+  "downloadResume": "Download Resume"
 }

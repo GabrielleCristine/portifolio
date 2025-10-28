@@ -3,39 +3,34 @@
 import { Button } from "@/components/ui/button"
 import { ArrowUpCircle, Download, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
+import { useTranslation } from "@/app/i18n/client"; // Usar o hook de cliente
 
-// Removido: Lógica de tradução que causava erro.
-// O conteúdo agora é hardcoded como estava antes das nossas alterações.
-// Você pode adicionar a lógica de tradução novamente quando estiver pronta.
+export default function Hero({ lng }: { lng: string }) {
+  const { t } = useTranslation(lng); // Passar o idioma para o hook
 
-export default function Hero() {
   return (
     <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
+            {/* Usando a função t() para buscar as traduções */}
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Hello, I'm <span className="gradient-text">Gabrielle Cristine</span>
+              {t('hero_greeting')} <span className="gradient-text">{t('hero_name')}</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
-              <span className="js-only">
-                <span>BI Developer | Full Stack Developer | JavaScript Expert | AWS Specialist</span>
-              </span>
-              <noscript>
-                <span>BI Developer | Full Stack Developer | JavaScript Expert | AWS Specialist</span>
-              </noscript>
+              <span>{t('hero_description')}</span>
             </p>
           </div>
           <div className="max-w-[700px] text-muted-foreground">
-            <p className="text-lg">I specialize in creating beautiful, functional, and high-performance web applications, focusing on an excellent user experience.</p>
+            <p className="text-lg">{t('description')}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild size="lg" className="rounded-full">
-              <Link href="#contact">Get in Touch</Link>
+              <Link href="#contact">{t('getInTouch')}</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
               <a href="https://resume.Gabrielle.com.np/Gabrielle_Cristine.pdf" target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-4 w-4" /> Download Resume
+                <Download className="mr-2 h-4 w-4" /> {t('downloadResume')}
               </a>
             </Button>
           </div>

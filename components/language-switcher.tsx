@@ -1,38 +1,34 @@
 'use client';
 
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export function LanguageSwitcher() {
-  const [language, setLanguage] = useState('pt');
+  const params = useParams();
+  const lng = params.lng as string;
 
   return (
     <div className="flex items-center gap-2 text-sm">
-      <button
-        onClick={() => setLanguage('pt')}
+      <Link
+        href="/pt"
         className={cn(
           'font-medium transition-colors hover:text-primary',
-          language === 'pt'
-            ? 'text-primary font-bold'
-            : 'text-muted-foreground'
+          lng === 'pt' ? 'text-primary font-bold' : 'text-muted-foreground'
         )}
-        aria-pressed={language === 'pt'}
       >
         PT
-      </button>
+      </Link>
       <span className="text-muted-foreground">/</span>
-      <button
-        onClick={() => setLanguage('en')}
+      <Link
+        href="/en"
         className={cn(
           'font-medium transition-colors hover:text-primary',
-          language === 'en'
-            ? 'text-primary font-bold'
-            : 'text-muted-foreground'
+          lng === 'en' ? 'text-primary font-bold' : 'text-muted-foreground'
         )}
-        aria-pressed={language === 'en'}
       >
         EN
-      </button>
+      </Link>
     </div>
   );
 }
