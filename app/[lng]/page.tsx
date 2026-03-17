@@ -12,7 +12,8 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export default async function Home({ params: { lng } }: { params: { lng: string } }) {
+export default async function Home({ params }: { params: Promise<{ lng: string }> }) {
+  const { lng } = await params;
   const { t } = await useTranslation(lng);
 
   return (

@@ -1,23 +1,28 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
-import { ArrowUpCircle, Download, Github, Linkedin, Mail } from "lucide-react"
+import { Download, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
-import { useTranslation } from "@/app/i18n/client"; // Usar o hook de cliente
+import { useTranslation } from "@/app/i18n"
+import ScrollToTop from "@/components/scroll-to-top"
 
-export default function Hero({ lng }: { lng: string }) {
-  const { t } = useTranslation(lng); // Passar o idioma para o hook
+export default async function Hero({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng)
 
   return (
     <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
-            {/* Usando a função t() para buscar as traduções */}
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
               {t('hero_greeting')} <span className="gradient-text">{t('hero_name')}</span>
             </h1>
-            
+            <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
+              <span className="js-only">
+                <span>{t('hero_role')}</span>
+              </span>
+              <noscript>
+                <span>{t('hero_role')}</span>
+              </noscript>
+            </p>
           </div>
           <div className="max-w-[700px] text-muted-foreground">
             <p className="text-lg">{t('description')}</p>
@@ -53,17 +58,7 @@ export default function Hero({ lng }: { lng: string }) {
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block js-only">
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }}
-          >
-            <ArrowUpCircle className="h-10 w-10 text-primary animate-bounce" />
-          </Link>
-        </div>
+        <ScrollToTop />
       </div>
     </section>
   )

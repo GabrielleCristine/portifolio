@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/header"; // 1. Importar o Header
+import AnimatedBackground from "@/components/animated-background";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,9 +33,12 @@ export default function ClientLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header /> {/* 2. Adicionar o Header aqui */}
-          <main>{children}</main> {/* 3. Envolver children com <main> */}
-          <SpeedInsights />
+          <div className="relative flex min-h-screen flex-col overflow-hidden">
+            <AnimatedBackground />
+            <Header /> {/* 2. Adicionar o Header aqui */}
+            <main className="flex-1 relative z-10">{children}</main> {/* 3. Envolver children com <main> */}
+            <SpeedInsights />
+          </div>
         </ThemeProvider>
       </body>
     </html>
