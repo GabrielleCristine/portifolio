@@ -1,7 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code2, Globe, Server, Users } from "lucide-react"
+import { useTranslation } from "@/app/i18n"
 
-export default function About() {
+export default async function About({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng)
   const features = [
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
@@ -31,7 +33,7 @@ export default function About() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="space-y-12">
             <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('about_title')}</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 BI Developer with technical expertise in data visualization (Power BI, Metabase), 
                 Database(Tuning, SQL), and Power Platform (Power Apps, Power Automate)

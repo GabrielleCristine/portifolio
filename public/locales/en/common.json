@@ -8,8 +8,9 @@
   "nav_contact": "Contact Me",
   "hero_greeting": "Hello, I'm",
   "hero_name": "Gabrielle Cristine",
-  "hero_role": "BI Developer | Power BI | Power Platform | Data Visualization",
+  "hero_role": "Data Viz Specialist | BI Consultant | Data Analyst | BI Developer",
   "description": "As a BI Developer, I connect data analysis and technical development with user experience (UX).",
   "getInTouch": "Get in Touch",
-  "downloadResume": "Download Resume"
+  "downloadResume": "Download Resume",
+  "about_title": "About Me"
 }

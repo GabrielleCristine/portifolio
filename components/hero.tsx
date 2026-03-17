@@ -3,6 +3,7 @@ import { Download, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import { useTranslation } from "@/app/i18n"
 import ScrollToTop from "@/components/scroll-to-top"
+import TypingText from "@/components/typing-text"
 
 export default async function Hero({ lng }: { lng: string }) {
   const { t } = await useTranslation(lng)
@@ -13,15 +14,10 @@ export default async function Hero({ lng }: { lng: string }) {
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              {t('hero_greeting')} <span className="gradient-text">{t('hero_name')}</span>
+              <TypingText text={t('hero_name')} className="gradient-text" />
             </h1>
-            <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
-              <span className="js-only">
-                <span>{t('hero_role')}</span>
-              </span>
-              <noscript>
-                <span>{t('hero_role')}</span>
-              </noscript>
+            <p className="mx-auto text-lg text-muted-foreground md:text-xl">
+              {t('hero_role')}
             </p>
           </div>
           <div className="max-w-[700px] text-muted-foreground">

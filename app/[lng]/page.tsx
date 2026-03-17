@@ -20,7 +20,7 @@ export default async function Home({ params }: { params: Promise<{ lng: string }
     <div className="w-full">
       {/* Passando lng e t para os componentes filhos que precisam de tradução */}
       <Hero lng={lng} />
-      <About />
+      <About lng={lng} />
       <Experience />
       <Projects />
       <Education />
