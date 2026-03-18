@@ -1,84 +1,62 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Skills from "./skills-content"
+import { useTranslation } from "@/app/i18n"
 
-export default function Experience() {
+export default async function Experience({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng)
   const experiences = [
     {
-      title: "Lead Engineer",
-      company: "Leapfrog Technology / Trayt Health",
-      period: "Jan 2025 - Present",
-      location: "Joinville, Santa Catarina",
+      title: "Faculdade de Engenharia de Software",
+      company: "UNOPAR - Universidade Norte do Paraná",
+      period: "Jan 2021 - Jul 2025",
       achievements: [
-        "Leading the engineering team in developing innovative healthcare solutions for Trayt Health",
-        "Architecting scalable and secure systems for handling sensitive healthcare data",
-        "Implementing advanced AWS infrastructure for high availability and compliance",
-        "Mentoring junior engineers and establishing best practices for code quality and security",
-        "Collaborating with product and design teams to deliver exceptional user experiences",
+        "Base sólida em lógica de programação, estruturas de dados e arquitetura de sistemas",
+        "Aplicação de boas práticas de desenvolvimento, versionamento e organização de código",
+        "Levantamento e documentação de requisitos funcionais e não funcionais",
+        "onhecimento em leis digitais e privacidade de dados, com foco na LGPD",
       ],
     },
     {
-      title: "BI Developer",
-      company: "Leapfrog Technology / Trayt Health",
-      period: "July 2023 - Jan 2025",
+      title: "Trainee de Administração de Banco de Dados",
+      company: "BySeven",
+      period: "Aug 2024 - Oct 2024",
       location: "Joinville, Santa Catarina",
       achievements: [
-        "Coordinated development efforts with remote teams across the US, Australia, and Nepal to deliver complex healthcare solutions for Trayt Health",
-        "Reduced the frontend bundle size by 20% through advanced optimization techniques",
-        "Optimized backend API performance, achieving over 200% faster response times",
-        "Leveraged AWS services (SQS, EventBridge, Lambda, Step Functions) to automate critical tasks",
-        "Mentored and coached team members, accelerating onboarding and enhancing team productivity",
+        "Apoio na administração e monitoramento de bancos de dados, garantindo desempenho e disponibilidade dos ambientes",
+        "Execução de consultas SQL para análise e validação de dados",
+        "Participação em atividades de otimização de performance (tuning) e organização de estruturas de dados",
+        "Apoio em rotinas de backup e recuperação, garantindo integridade e segurança das informações",
       ],
     },
     {
-      title: "Software Engineer",
-      company: "Leapfrog Technology",
-      period: "Sep 2021 - July 2023",
+      title: "Analista de Banco de Dados",
+      company: "BySeven",
+      period: "Oct 2024 - Apr 2025",
       location: "Joinville, Santa Catarina",
       achievements: [
-        "Led and managed a diverse software development team comprising over 15 members",
-        "Designed and implemented solutions that consistently exceeded performance benchmarks",
-        "Streamlined project planning by working closely with product owners",
-        "Orchestrated the successful release of major application versions",
-        "Emerged as the primary point of contact for both project stakeholders and management",
+        "Administração e suporte a bancos de dados Oracle, PostgreSQL, MySQL, DB2 e Progress, garantindo disponibilidade e desempenho dos ambientes",
+        "Execução e otimização de consultas SQL, contribuindo para melhoria de performance e eficiência das operações",
+        "Atuação em ambiente Linux para gerenciamento de servidores e suporte às operações de banco de dados",
+        "Monitoramento e análise de performance, identificando gargalos e propondo melhorias contínuas",
+        "Apoio em rotinas de backup e recuperação, assegurando integridade e segurança dos dados",
+        "Colaboração na resolução de incidentes e suporte a times internos, garantindo estabilidade dos sistemas"
       ],
     },
     {
-      title: "Associate Software Engineer",
-      company: "Leapfrog Technology",
-      period: "Sep 2020 - Sep 2021",
-      location: "Joinville, Santa Catarina",
+      title: "Consultora e Desenvolvedora de BI",
+      company: "CDB Data Solutions",
+      period: "Mai 2025 - Até o Momento",
+      location: "Remoto",
       achievements: [
-        "Collaborated with senior developers and product owners to deliver high-quality applications",
-        "Employed a meticulous approach to debugging code and identifying root causes of issues",
-        "Contributed to system improvement efforts by conducting thorough system analysis",
-        "Played a pivotal role in enhancing system performance through strategic optimization",
-        "Innovatively designed and developed a browser extension, streamlining workflow processes",
+        "Desenvolvimento de dashboards e soluções de BI utilizando Power BI e outras ferramentas de visualização de dados",
+        "Modelagem e transformação de dados para construção de indicadores estratégicos e análises de negócio",
+        "Integração de múltiplas fontes de dados, garantindo consistência, qualidade e confiabilidade das informações",
+        "Automação de processos e fluxos de dados utilizando SQL, Python e ferramentas da Power Platform",
+        "Atuação junto às áreas de negócio para levantamento de requisitos e construção de soluções orientadas à tomada de decisão",
+        "Otimização de performance em modelos de dados e relatórios, garantindo escalabilidade e eficiência"
       ],
-    },
-    {
-      title: "Software Engineer Intern",
-      company: "Leapfrog Technology",
-      period: "Jun 2020 - Sep 2020",
-      location: "Joinville, Santa Catarina",
-      achievements: [
-        "Acquired proficiency in JavaScript and harnessed the browser canvas API",
-        "Recreated Pac-man game with vanilla JS while integrating various path-finding algorithms",
-        "Successfully delved into backend development with Node.js and honed frontend skills with React.js",
-      ],
-    },
-    {
-      title: "Web Application Developer",
-      company: "Technorio Inc.",
-      period: "Jan 2019 - Jun 2020",
-      location: "Joinville, Santa Catarina",
-      achievements: [
-        "Delivered projects across diverse industries, including insurance management, video streaming, and ticket management",
-        "Collaborated closely with the business development team, offering engineering insights",
-        "Utilized GitHub actions to automate deployment pipelines",
-        "Applied server deployment expertise to successfully launch a range of web applications",
-      ],
-    },
+    }
   ]
 
   return (
@@ -86,9 +64,9 @@ export default function Experience() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="space-y-12">
           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Experience</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('experience_title')}</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              My professional journey and key accomplishments
+              {t('experience_subtitle')}
             </p>
           </div>
 
@@ -125,7 +103,7 @@ export default function Experience() {
 
           {/* Skills Section */}
           <div className="mt-20" id="skills">
-            <Skills />
+            <Skills lng={lng} />
           </div>
         </div>
       </div>

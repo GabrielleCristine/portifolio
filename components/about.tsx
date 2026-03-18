@@ -7,23 +7,23 @@ export default async function About({ lng }: { lng: string }) {
   const features = [
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
-      title: "Full Stack Development",
-      description: "Expertise in JavaScript, TypeScript, React.js, Node.js, and Laravel",
+      title: t('card1_title'),
+      description: t('card1_desc'),
     },
     {
       icon: <Server className="h-10 w-10 text-primary" />,
-      title: "Cloud Solutions",
-      description: "Proficient with AWS services including SQS, EventBridge, Lambda, and Step Functions",
+      title: t('card2_title'),
+      description: t('card2_desc'),
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
-      title: "Team Leadership",
-      description: "Led diverse teams of 15+ members across development, design, DevOps, and QA",
+      title: t('card3_title'),
+      description: t('card3_desc'),
     },
     {
       icon: <Globe className="h-10 w-10 text-primary" />,
-      title: "Global Collaboration",
-      description: "Coordinated with remote teams across the US, Australia, and Nepal",
+      title: t('card4_title'),
+      description: t('card4_desc'),
     },
   ]
 
@@ -35,16 +35,13 @@ export default async function About({ lng }: { lng: string }) {
             <div className="space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('about_title')}</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                BI Developer with technical expertise in data visualization (Power BI, Metabase), 
-                Database(Tuning, SQL), and Power Platform (Power Apps, Power Automate)
+                {t('about_intro')}
               </p>
             </div>
 
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                Skilled in developing scalable, insightful, and experience-driven data solutions.
-                Demonstrated success in delivering impactful BI dashboards and automated workflows that enhance decision-making and operational efficiency.
-                Proficient in optimizing complex data models and mentoring teams on data literacy and best practices.
+                {t('about_body')}
               </p>
             </div>
 

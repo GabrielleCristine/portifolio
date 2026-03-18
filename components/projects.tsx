@@ -1,40 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import Link from "next/link"
-import OpenSource from "./open-source"
+import { useTranslation } from "@/app/i18n"
 
-export default function Projects() {
+export default async function Projects({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng)
   const projects = [
     {
-      title: "Pacman",
+      title: "Relatório Financeiro com DRE",
       description:
         "A recreation of the classic Pacman game with vanilla JavaScript, implementing various path-finding algorithms for ghost movement.",
       tags: ["JavaScript", "Canvas API", "Path-finding Algorithms"],
-      codeLink: "https://github.com/CristineGabrielle/pacman",
       liveLink: "https://CristineGabrielle.github.io/pacman/",
     },
     {
       title: "Flappy Bird",
       description: "A clone of the popular Flappy Bird game built with vanilla JavaScript and HTML5 Canvas.",
       tags: ["JavaScript", "Canvas API", "Game Development"],
-      codeLink: "https://github.com/CristineGabrielle/flappy-bird",
       liveLink: "https://CristineGabrielle.github.io/flappy-bird/",
-    },
-    {
-      title: "Pursue - Job Handling with AWS",
-      description:
-        "A JavaScript package for handling job processing using AWS services like SQS, Lambda, and Step Functions.",
-      tags: ["Node.js", "AWS", "SQS", "Lambda", "npm package"],
-      codeLink: "https://github.com/CristineGabrielle/pursue",
-      liveLink: null,
-    },
-    {
-      title: "Mailer",
-      description: "A JavaScript package to prepare and send emails using AWS SES, with templating support.",
-      tags: ["Node.js", "AWS", "SES", "Email Templates", "npm package"],
-      codeLink: "https://github.com/CristineGabrielle/mailer",
-      liveLink: null,
     },
   ]
 
@@ -43,9 +27,9 @@ export default function Projects() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="space-y-12">
           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Projects</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('projects_title')}</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              A selection of my personal and professional projects
+              {t('projects_subtitle')}
             </p>
           </div>
 
@@ -63,16 +47,11 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <div className="project-links mt-4">
-                      <Button size="sm" variant="outline" asChild>
-                        <Link href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                          <Github className="mr-1 h-4 w-4" /> Code
-                        </Link>
-                      </Button>
+                    <div className="project-links mt-4 justify-center">
                       {project.liveLink && (
                         <Button size="sm" variant="outline" asChild>
                           <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-1 h-4 w-4" /> Live
+                            <ExternalLink className="mr-1 h-4 w-4" /> Visualizar
                           </Link>
                         </Button>
                       )}
@@ -81,11 +60,6 @@ export default function Projects() {
                 </Card>
               </div>
             ))}
-          </div>
-
-          {/* Include Open Source section directly under Projects */}
-          <div className="mt-20">
-            <OpenSource />
           </div>
         </div>
       </div>

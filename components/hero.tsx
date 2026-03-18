@@ -16,22 +16,22 @@ export default async function Hero({ lng }: { lng: string }) {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
               <TypingText text={t('hero_name')} className="gradient-text" />
             </h1>
-            <p className="mx-auto text-lg text-muted-foreground md:text-xl">
+            <p className="mx-auto text-base text-muted-foreground md:text-lg md:whitespace-nowrap tracking-wide">
               {t('hero_role')}
             </p>
           </div>
-          <div className="max-w-[700px] text-muted-foreground">
+          <div className="max-w-[700px] text-muted-foreground mt-4">
             <p className="text-lg">{t('description')}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild size="lg" className="rounded-full">
               <Link href="#contact">{t('getInTouch')}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full">
+            {/* <Button asChild variant="outline" size="lg" className="rounded-full">
               <a href="https://resume.Gabrielle.com.np/Gabrielle_Cristine.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" /> {t('downloadResume')}
               </a>
-            </Button>
+            </Button> */}
           </div>
           <div className="flex gap-4 mt-6">
             <Button variant="ghost" size="icon" asChild>
