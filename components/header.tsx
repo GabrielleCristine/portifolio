@@ -11,22 +11,25 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { LanguageSwitcher } from "./language-switcher"
 import TypingLogo from "./typing-logo"
-
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Education", href: "#education" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact Me", href: "#contact" },
-]
+import { useTranslation } from "@/app/i18n/client"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const pathname = usePathname()
+  const lng = pathname?.split("/")[1] || "pt"
+  const { t } = useTranslation(lng)
+
+  const navItems = [
+    { name: t("nav_home"), href: "#home" },
+    { name: t("nav_about"), href: "#about" },
+    { name: t("nav_experience"), href: "#experience" },
+    { name: t("nav_projects"), href: "#projects" },
+    { name: t("nav_education"), href: "#education" },
+    { name: t("nav_blog"), href: "#blog" },
+    { name: t("nav_contact"), href: "#contact" },
+  ]
 
   const determineActiveSection = useCallback(() => {
     const sections = navItems.map((item) => item.href.substring(1))
