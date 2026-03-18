@@ -6,7 +6,7 @@ import { useTranslation } from "@/app/i18n"
 
 const certificates = [
   {
-    title: "Microsoft Power BI Data Analyst",
+    title: "PL300: Microsoft Power BI Data Analyst",
     issuer: "Microsoft",
     year: "2025",
     tags: ["Power BI", "DAX", "Data Modeling"],

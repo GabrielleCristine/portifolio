@@ -20,6 +20,12 @@ export default async function Projects({ lng }: { lng: string }) {
       tags: ["Power BI", "Big Query", "SQL"],
       liveLink: "https://app.powerbi.com/view?r=eyJrIjoiODAyOWU3NjUtZjhhZC00OGZmLTk4N2YtMTM5YjM5NWU5YjAwIiwidCI6Ijg2Yjg5ZDdkLWU1OTctNGQxMy1iNTIzLTA4Mjg2MzU0ODVkZiJ9",
     },
+    {
+      title: "Painel de Performance de Campanhas",
+      description: "Dashboard Web de análise de tráfego pago com foco em performance de campanhas, ROI e métricas de conversão.",
+      tags: ["TypeScript", "Node.js", "HTML", "CSS", "Google Analytics"],
+      liveLink: "https://analise-campanhas-project.vercel.app/",
+    },
   ]
 
   return (
