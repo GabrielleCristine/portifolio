@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone } from "lucide-react"
+import { useTranslation } from "@/app/i18n"
 
-export default function Contact() {
+export default async function Contact({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng)
+
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
@@ -14,13 +17,13 @@ export default function Contact() {
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
-      title: "Location",
-      value: "Joinville, Santa Catarina",
-      link: "https://maps.google.com/?q=Kathmandu,Nepal",
+      title: t('contact_location_label'),
+      value: "Brasília, Distrito Federal",
+      link: "https://maps.google.com/?q=Brasília,Distrito+Federal",
     },
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
-      title: "Phone",
+      title: t('contact_phone_label'),
       value: "+55 (61) 99369-7906",
       link: null,
     },
@@ -32,9 +35,9 @@ export default function Contact() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="space-y-12">
             <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get In Touch</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('contact_title')}</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Have a project in mind or want to discuss opportunities? I'd love to hear from you!
+                {t('contact_subtitle')}
               </p>
             </div>
 
@@ -42,45 +45,45 @@ export default function Contact() {
               <div className="lg:col-span-2">
                 <Card>
                   <CardContent className="p-6">
-                    <form action="https://formspree.io/f/xanoenzo" method="POST" className="space-y-6">
+                    <form action="https://formspree.io/f/mgonpjpa" method="POST" className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label htmlFor="name" className="text-sm font-medium">
-                            Name
+                            {t('contact_name_label')}
                           </label>
-                          <Input id="name" name="name" placeholder="Your name" required />
+                          <Input id="name" name="name" placeholder={t('contact_name_placeholder')} required />
                         </div>
                         <div className="space-y-2">
                           <label htmlFor="email" className="text-sm font-medium">
-                            Email
+                            {t('contact_email_label')}
                           </label>
-                          <Input id="email" name="email" type="email" placeholder="Your email" required />
+                          <Input id="email" name="email" type="email" placeholder={t('contact_email_placeholder')} required />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="subject" className="text-sm font-medium">
-                          Subject
+                          {t('contact_subject_label')}
                         </label>
-                        <Input id="subject" name="subject" placeholder="Subject of your message" required />
+                        <Input id="subject" name="subject" placeholder={t('contact_subject_placeholder')} required />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-medium">
-                          Message
+                          {t('contact_message_label')}
                         </label>
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="Your message"
+                          placeholder={t('contact_message_placeholder')}
                           className="min-h-[150px]"
                           required
                         />
                       </div>
                       <Button type="submit" className="w-full">
-                        Send Message
+                        {t('contact_send')}
                       </Button>
                       <noscript>
                         <p className="text-sm text-center text-muted-foreground mt-2">
-                          Please enable JavaScript to use the form, or email me directly.
+                          {t('contact_noscript')}
                         </p>
                       </noscript>
                     </form>
@@ -99,8 +102,8 @@ export default function Contact() {
                           <a
                             href={info.link}
                             className="text-muted-foreground hover:text-primary transition-colors"
-                            target={info.title === "Location" ? "_blank" : undefined}
-                            rel={info.title === "Location" ? "noopener noreferrer" : undefined}
+                            target={info.title === t('contact_location_label') ? "_blank" : undefined}
+                            rel={info.title === t('contact_location_label') ? "noopener noreferrer" : undefined}
                           >
                             {info.value}
                           </a>
@@ -114,8 +117,8 @@ export default function Contact() {
 
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="font-medium mb-2">Connect with me</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Find me on these platforms</p>
+                    <h3 className="font-medium mb-2">{t('contact_connect_title')}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{t('contact_connect_subtitle')}</p>
                     <div className="flex gap-4">
                       <Button variant="outline" size="icon" asChild>
                         <a href="https://github.com/CristineGabrielle" target="_blank" rel="noopener noreferrer">

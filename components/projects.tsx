@@ -10,15 +10,15 @@ export default async function Projects({ lng }: { lng: string }) {
     {
       title: "Relatório Financeiro com DRE",
       description:
-        "A recreation of the classic Pacman game with vanilla JavaScript, implementing various path-finding algorithms for ghost movement.",
-      tags: ["JavaScript", "Canvas API", "Path-finding Algorithms"],
-      liveLink: "https://CristineGabrielle.github.io/pacman/",
+        "Desenvolvimento de solução analítica para acompanhamento financeiro, com modelagem e aplicação de regras de negócio via dbt. O projeto inclui visualização estruturada de DRE, indicadores de desempenho e construção de visuais personalizados com HTML e CSS.",
+      tags: ["Power BI", "dbt", "HTML e CSS"],
+      liveLink: "https://app.powerbi.com/view?r=eyJrIjoiMTNiN2FjMGItMTcwOC00NWFjLWJjYjAtOTA4NWVlNjE4ZGRkIiwidCI6Ijg2Yjg5ZDdkLWU1OTctNGQxMy1iNTIzLTA4Mjg2MzU0ODVkZiJ9",
     },
     {
-      title: "Flappy Bird",
-      description: "A clone of the popular Flappy Bird game built with vanilla JavaScript and HTML5 Canvas.",
-      tags: ["JavaScript", "Canvas API", "Game Development"],
-      liveLink: "https://CristineGabrielle.github.io/flappy-bird/",
+      title: "Dashboard Estratégico de Vendas e Devoluções",
+      description: "Dashboard desenvolvido para análise estratégica de vendas, com foco em indicadores de desempenho com gráfico de pareto e curva ABC.",
+      tags: ["Power BI", "Big Query", "SQL"],
+      liveLink: "https://app.powerbi.com/view?r=eyJrIjoiODAyOWU3NjUtZjhhZC00OGZmLTk4N2YtMTM5YjM5NWU5YjAwIiwidCI6Ijg2Yjg5ZDdkLWU1OTctNGQxMy1iNTIzLTA4Mjg2MzU0ODVkZiJ9",
     },
   ]
 

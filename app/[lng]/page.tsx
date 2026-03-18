@@ -22,8 +22,8 @@ export default async function Home({ params }: { params: Promise<{ lng: string }
       <About lng={lng} />
       <Experience lng={lng} />
       <Projects lng={lng} />
-      <Blog />
-      <Contact />
+      <Blog lng={lng} />
+      <Contact lng={lng} />
     </div>
   );
 }
